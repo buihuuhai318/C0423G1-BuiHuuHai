@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 3</title>
+</head>
+<body>
+<script>
+
+    let arrA = [2, 7, 11, 15];
+    let s1 = 9;
+    let arrB = [3, 2, 4];
+    let s2 = 9;
+    let arrC = [1, 2, 4, 7, 5];
+    let s3 = 6;
+
+    alert(findTwoSum(arrA, s1));
+    alert(findTwoSum(arrB, s2));
+    alert(findTwoSum(arrC, s3));
+
+    function findTwoSum(arr, s) {
+        let flag = false;
+        let arrIndexOfSum = [];
+        let count = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] === s) {
+                    arrIndexOfSum.push(i, j);
+                    flag = true;
+                    count++;
+                }
+            }
+        }
+
+        let sumOfIndex = 0;
+        let newArr = [];
+
+        if (count <= 1) {
+            if (flag) {
+                return arrIndexOfSum;
+            } else {
+                return false;
+            }
+        } else {
+            sumOfIndex = arrIndexOfSum[0] + arrIndexOfSum[1];
+            for (let i = 2; i < arrIndexOfSum.length; i += 2) {
+                if (sumOfIndex > arrIndexOfSum[i] + arrIndexOfSum[i + 1]) {
+                    newArr = [arrIndexOfSum[i], arrIndexOfSum[i + 1]];
+                }
+            }
+            return newArr;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>bài 1</title>
 </head>
 <body>
+<script>
 
+    let length = +prompt("Nhập độ dài mảng");
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+        arr[i] = +prompt(`Nhập phần tử vị trí arr[${i}]`);
+    }
+    alert("Mảng bạn vừa nhập là: " + arr);
+
+    let k = arr[1] - arr[0];
+    let flag = true;
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i + 1] - arr[i] !== k) {
+            flag = false;
+        }
+    }
+
+    if (flag && k > 0) {
+        alert(`OK`);
+    } else alert(`NO`);
+
+</script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 4</title>
+</head>
+<body>
+
+<h2>Chương Trình Quản Lý Sách</h2>
+<hr>
+<div id="hienThiDanhSach"></div>
+
+<script>
+
+    class Sach {
+        constructor(maSo, tenSach, tacGia, soLuong, nhaXuatBan) {
+            this.maSo = maSo;
+            this.tenSach = tenSach;
+            this.tacGia = tacGia;
+            this.soLuong = soLuong;
+            this.nhaXuatban = nhaXuatBan;
+        }
+    }
+
+    let hocTap0 = new Sach("HT001", "Học Tập", "Hải", 5, "Kim Đồng");
+    let hocTap1 = new Sach("HT002", "Lao Động", "Hải", 7, "Kim Đồng");
+    let hocTap2 = new Sach("HT003", "Khoa Học", "Hải", 10, "Kim Đồng");
+    let hocTap3 = new Sach("HT004", "Sinh Học", "Hải", 2, "Kim Đồng");
+    let hocTap4 = new Sach("HT005", "Xã Hội", "Hải", 9, "Kim Đồng");
+
+    let danhSach = [hocTap0, hocTap1, hocTap2, hocTap3, hocTap4];
+
+    hienThiDanhSach(danhSach);
+
+    function hienThiDanhSach(mangDanhSach) {
+        let bangDanhSach = `
+            <table border="1" style="border-collapse: collapse; height: 100px; width: 500px; text-align: center">
+                <tr>
+                    <th>Mã Sách</th>
+                    <th>Tên Sách</th>
+                    <th>Tác Giả</th>
+                    <th>Số Lượng</th>
+                    <th>Nhà Xuất Bản</th>
+                </tr>
+        `;
+        for (let i = 0; i < mangDanhSach.length; i++) {
+            bangDanhSach += `<tr>
+                        <td>${mangDanhSach[i].maSo}</td>
+                        <td>${mangDanhSach[i].tenSach}</td>
+                        <td>${mangDanhSach[i].tacGia}</td>
+                        <td>${mangDanhSach[i].soLuong}</td>
+                        <td>${mangDanhSach[i].nhaXuatban}</td>
+                    </tr>
+            `;
+        }
+        bangDanhSach += `</table>`;
+        document.getElementById("hienThiDanhSach").innerHTML = bangDanhSach;
+    }
+
+</script>
+</body>
+</html>
